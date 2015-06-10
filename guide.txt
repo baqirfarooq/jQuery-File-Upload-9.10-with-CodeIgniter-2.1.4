@@ -1,0 +1,9 @@
+jQuery File Upload 9.5 with CodeIgniter 2.1.4 Documentation
+Author baqir memon
+
+
+1) setup codeigniter project.
+2) paste the application folder in your project
+3) Open you core folder in application paste My-Modal.php file in core folder in tyour project
+4) paste uploads folder in ypur main root of project
+5) excute database in your server
