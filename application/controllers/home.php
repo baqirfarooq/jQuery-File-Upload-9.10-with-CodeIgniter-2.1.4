@@ -13,17 +13,17 @@ class Home extends CI_Controller {
 	{
 		$data['img_set'] = $this->image_setting_model->get(1, TRUE);
 		$data['images'] = $this->image_model->get();
-		$data['title'] = 'Gallery';
+		$data['title'] = 'CI Image Upload';
 		$this->load->view('index', $data, FALSE);
 	}
-	public function upload_gallery()
+	public function upload_images()
 	{
 		
-			$upload_path_url =  site_url().'uploads/gallery/';
+			$upload_path_url =  site_url().'uploads/';
 			$upload_delete_path = site_url().'home/delete/';
 			$info = new StdClass();
 			// upload config set
-			$config['upload_path'] = './uploads/gallery/';
+			$config['upload_path'] = './uploads/';
 			$config['allowed_types'] = 'jpg|jpeg|png|gif';
 			$config['encrypt_name'] = TRUE;
 			$config['max_size'] = '30000';
@@ -88,8 +88,8 @@ class Home extends CI_Controller {
 		$info = new stdClass();
 		$row = $this->image_model->get($id, TRUE);
 		$image = $row->image;
-		$file = site_url().'uploads/gallery/'.$image;
-		$info->success = unlink('./uploads/gallery/'.$image);
+		$file = site_url().'uploads/'.$image;
+		$info->success = unlink('./uploads/'.$image);
 		if ($info->success) {
 			$affected = $this->image_model->delete($id);
 			if ($affected) {

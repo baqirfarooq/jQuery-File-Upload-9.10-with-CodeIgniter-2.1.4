@@ -48,7 +48,7 @@
     </blockquote>
     <br>
     <!-- The file upload form used as target for the file upload widget -->
-    <form id="fileupload" action="<?php echo site_url() ?>home/upload_gallery/" method="POST" enctype="multipart/form-data">
+    <form id="fileupload" action="<?php echo site_url() ?>home/upload_images/" method="POST" enctype="multipart/form-data">
         <!-- Redirect browsers with JavaScript disabled to the origin page -->
         <noscript><input type="hidden" name="redirect" value="/"></noscript>
         <!-- The fileupload-buttonbar contains buttons to add/delete files and start/cancel the upload -->
@@ -271,9 +271,9 @@ width: 15%
 <div class="container">
     <div class="row">
         <?php foreach($images as $image) : ?>
-            <div class="col-sm-2 col-md-2 gallery-item">
+            <div class="col-sm-2 col-md-2 item">
                 <div class="thumbnail clearfix">
-                  <img src="<?php echo site_url() ?>uploads/gallery/<?php echo $image->image; ?>" >
+                  <img src="<?php echo site_url() ?>uploads/<?php echo $image->image; ?>" >
                     <div class="caption">
                         <p class="pull-right">
                         <a href="<?php echo site_url() ?>home/delete/<?php echo $image->id; ?>" class="btn btn-danger btn-mini button-delete-image" ><i class="fa fa-trash-o"></i></a></p>
@@ -330,7 +330,7 @@ width: 15%
         var currentLink = $(this);
         $.ajax({
                 url: $(this).attr('href'),
-                success: function(msg){currentLink.closest('.gallery-item').fadeOut('fast').css("background-color", "#F00");}
+                success: function(msg){currentLink.closest('.item').fadeOut('fast').css("background-color", "#F00");}
         });
     });
     // image resize setting
